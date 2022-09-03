@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import reactLogo from './assets/react.svg';
+
 import './App.css';
+import Login from './layout/Login';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <BrowserRouter>
-      <Route>
-        <Route />
-      </Route>
+      <Routes>
+        <Route path="/" element={<Login />}>
+          <Route />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
