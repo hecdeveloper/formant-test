@@ -10,9 +10,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}>
-          <Route index element={<LoginForm />} />
-        </Route>
         <Route path="/robots" element={<Layout />}>
           <Route index element={<Start />} />
           <Route path="new" element={<NewRobot />} />

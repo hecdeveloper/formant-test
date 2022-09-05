@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const EditRobot = () => {
+const EditRobot = () => {
   return <div>EditRobot</div>;
 };
+
+export default EditRobot;
