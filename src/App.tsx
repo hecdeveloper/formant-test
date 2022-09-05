@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import './App.css';
+import Layout from './layout/Layout';
 import Login from './layout/Login';
-
+import Start from './pages/Start';
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}>
-          <Route />
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/robots" element={<Layout />}>
+          <Route index element={<Start />} />
         </Route>
       </Routes>
     </BrowserRouter>
