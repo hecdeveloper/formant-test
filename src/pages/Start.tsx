@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Start = () => {
-  return <div>Desde Inicio.tsx</div>;
+  return <div>Start</div>;
 };
 
 export default Start;
