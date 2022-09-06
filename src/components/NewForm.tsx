@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import NewAlert from './NewAlert';
-
+// json-server --watch db.json --port 4000
 const NewForm = () => {
   const newRobotSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too Short!').required('Name is required'),
