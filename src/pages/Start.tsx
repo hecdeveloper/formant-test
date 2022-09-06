@@ -29,8 +29,8 @@ const Start = () => {
           </tr>
         </thead>
         <tbody>
-          {robots.map((robot) => (
-            <Robot />
+          {robots.map((robot: any) => (
+            <Robot key={robot.id} robot={robot} />
           ))}
         </tbody>
       </table>

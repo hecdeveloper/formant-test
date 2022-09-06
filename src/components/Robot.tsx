@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Robot = ({ robot }: any) => {
+  const { name, arms, notes } = robot;
   return (
-    <div>
-      <h1>{robot.name}</h1>
-    </div>
+    <tr>
+      <h1>{name}</h1>
+    </tr>
   );
 };
 

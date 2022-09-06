@@ -15,6 +15,12 @@
       "arms": "qwqw",
       "notes": "qwqw",
       "id": 3
+    },
+    {
+      "name": "robot name",
+      "arms": "1121",
+      "notes": "212",
+      "id": 4
     }
   ]
 }
