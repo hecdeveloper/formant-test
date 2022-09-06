@@ -1,7 +1,7 @@
 {
   "robots": [
     {
-      "ip": 1,
+      "id": 1,
       "name": "robot1"
     }
   ]

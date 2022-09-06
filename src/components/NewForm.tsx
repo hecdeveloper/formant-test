@@ -17,7 +17,9 @@ const NewForm = () => {
           'Content-Type': 'application/json',
         },
       });
+      console.log(response);
       const result = await response.json();
+      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -30,8 +32,9 @@ const NewForm = () => {
       </h1>
       <Formik
         initialValues={{ name: '', arms: '', notes: '' }}
-        onSubmit={(values) => {
-          handleSubmit(values);
+        onSubmit={async (values, { resetForm }) => {
+          await handleSubmit(values);
+          resetForm();
         }}
         validationSchema={newRobotSchema}
       >
