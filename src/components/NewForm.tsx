@@ -1,9 +1,11 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router';
 import NewAlert from './NewAlert';
 // json-server --watch db.json --port 4000
 const NewForm = () => {
+  const navigate = useNavigate();
   const newRobotSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too Short!').required('Name is required'),
   });
@@ -20,6 +22,7 @@ const NewForm = () => {
       console.log(response);
       const result = await response.json();
       console.log(result);
+      navigate('/robots');
     } catch (error) {
       console.log(error);
     }
