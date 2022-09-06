@@ -1,7 +1,12 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import NewAlert from './NewAlert';
 
 const NewForm = () => {
+  const newRobotSchema = Yup.object().shape({
+    name: Yup.string().min(3, 'Too Short!').required('Name is required'),
+  });
   const handleSubmit = (values: any) => {
     console.log(values);
   };
@@ -12,62 +17,70 @@ const NewForm = () => {
         Add Robot
       </h1>
       <Formik
-        initialValues={{ name: '', arms: '', email: '', notes: '' }}
+        initialValues={{ name: '', arms: '', notes: '' }}
         onSubmit={(values) => {
-          console.log(values);
+          handleSubmit(values);
         }}
+        validationSchema={newRobotSchema}
       >
-        {() => (
-          <Form>
-            <div className="mb-4">
-              <label className="text-gray-800" htmlFor="name">
-                Name:
-              </label>
-              <Field
-                id="name"
-                type="text"
-                className="mt-2 block w-full p-3 bg-gray-50"
-                placeholder="Robot Name"
-                name="name"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="text-gray-800" htmlFor="number">
-                Number of arms:
-              </label>
-              <Field
-                id="arms"
-                type="text"
-                className="mt-2 block w-full p-3 bg-gray-50"
-                placeholder="Arms Number"
-                name="arms"
-              />
-            </div>
+        {({ errors, touched }) => {
+          // console.log(data);
 
-            <div className="mb-4">
-              <label
-                className="text-gray-800"
-                htmlFor="phone
+          return (
+            <Form>
+              <div className="mb-4">
+                <label className="text-gray-800" htmlFor="name">
+                  Name:
+                </label>
+                <Field
+                  id="name"
+                  type="text"
+                  className="mt-2 block w-full p-3 bg-gray-50"
+                  placeholder="Robot Name"
+                  name="name"
+                />
+                {errors.name && touched.name ? (
+                  <NewAlert>{errors.name}</NewAlert>
+                ) : null}
+              </div>
+              <div className="mb-4">
+                <label className="text-gray-800" htmlFor="number">
+                  Number of arms:
+                </label>
+                <Field
+                  id="arms"
+                  type="text"
+                  className="mt-2 block w-full p-3 bg-gray-50"
+                  placeholder="Arms Number"
+                  name="arms"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  className="text-gray-800"
+                  htmlFor="phone
             "
-              >
-                Notes:
-              </label>
-              <Field
-                as="textarea"
-                id="notes"
-                type="text"
-                className="mt-2 block w-full p-3 bg-gray-50"
-                placeholder="Phone del Cliente"
-                name="notes"
+                >
+                  Notes:
+                </label>
+                <Field
+                  as="textarea"
+                  id="notes"
+                  type="text"
+                  className="mt-2 block w-full p-3 bg-gray-50"
+                  placeholder="Phone del Cliente"
+                  name="notes"
+                />
+              </div>
+              <input
+                type="submit"
+                value="Add Robot"
+                className="mt-5 w-full bg-blue-800 p-3 text-white uppercase font-bold text-lg"
               />
-            </div>
-            <input
-              type="submit"
-              value="Add Robot"
-              className="mt-5 w-full bg-blue-800 p-3 text-white uppercase font-bold text-lg"
-            />
-          </Form>
-        )}
+            </Form>
+          );
+        }}
       </Formik>
     </div>
   );
