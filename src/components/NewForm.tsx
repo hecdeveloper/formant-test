@@ -59,7 +59,7 @@ const NewForm = () => {
               <div className="mb-4">
                 <label
                   className="text-gray-800"
-                  htmlFor="phone
+                  htmlFor="notes
             "
                 >
                   Notes:
@@ -69,7 +69,7 @@ const NewForm = () => {
                   id="notes"
                   type="text"
                   className="mt-2 block w-full p-3 bg-gray-50"
-                  placeholder="Phone del Cliente"
+                  placeholder="Special Notes"
                   name="notes"
                 />
               </div>
