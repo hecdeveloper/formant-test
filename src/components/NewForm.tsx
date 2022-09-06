@@ -7,8 +7,20 @@ const NewForm = () => {
   const newRobotSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too Short!').required('Name is required'),
   });
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const handleSubmit = async (values: any) => {
+    try {
+      const url = 'http://localhost:4000/robots';
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const result = await response.json();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
