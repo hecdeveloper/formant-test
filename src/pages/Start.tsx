@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Robot from '../components/Robot';
 
 const Start = () => {
   const [robots, setRobots] = useState([]);
@@ -27,7 +28,11 @@ const Start = () => {
             <th className="border px-4 py-2">Notes</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {robots.map((robot) => (
+            <Robot />
+          ))}
+        </tbody>
       </table>
     </>
   );
